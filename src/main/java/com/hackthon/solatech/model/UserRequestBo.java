@@ -14,7 +14,8 @@ public class UserRequestBo {
 	private String name;
 	private String phone;
 	private String email;
-	private LocalDate dateOfJoining;
+	private String dateOfBirth;
+	private String password;
 
 	/**
 	 * @return the name
@@ -59,26 +60,41 @@ public class UserRequestBo {
 	}
 
 	/**
-	 * @return the dateOfJoining
+	 * @return the dateOfBirth
 	 */
-	public LocalDate getDateOfJoining() {
-		return dateOfJoining;
+	public String getDateOfBirth() {
+		return dateOfBirth;
 	}
 
 	/**
-	 * @param dateOfJoining the dateOfJoining to set
+	 * @param dateOfBirth the dateOfBirth to set
 	 */
-	public void setDateOfJoining(LocalDate dateOfJoining) {
-		this.dateOfJoining = dateOfJoining;
+	public void setDateOfBirth(String dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
+	/**
+	 * @return the password
+	 */
+	public String getPassword() {
+		return password;
+	}
+
+	/**
+	 * @param password the password to set
+	 */
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((dateOfJoining == null) ? 0 : dateOfJoining.hashCode());
+		result = prime * result + ((dateOfBirth == null) ? 0 : dateOfBirth.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((phone == null) ? 0 : phone.hashCode());
 		return result;
 	}
@@ -92,10 +108,10 @@ public class UserRequestBo {
 		if (getClass() != obj.getClass())
 			return false;
 		UserRequestBo other = (UserRequestBo) obj;
-		if (dateOfJoining == null) {
-			if (other.dateOfJoining != null)
+		if (dateOfBirth == null) {
+			if (other.dateOfBirth != null)
 				return false;
-		} else if (!dateOfJoining.equals(other.dateOfJoining))
+		} else if (!dateOfBirth.equals(other.dateOfBirth))
 			return false;
 		if (email == null) {
 			if (other.email != null)
@@ -106,6 +122,11 @@ public class UserRequestBo {
 			if (other.name != null)
 				return false;
 		} else if (!name.equals(other.name))
+			return false;
+		if (password == null) {
+			if (other.password != null)
+				return false;
+		} else if (!password.equals(other.password))
 			return false;
 		if (phone == null) {
 			if (other.phone != null)
@@ -124,8 +145,10 @@ public class UserRequestBo {
 		builder.append(phone);
 		builder.append(", email=");
 		builder.append(email);
-		builder.append(", dateOfJoining=");
-		builder.append(dateOfJoining);
+		builder.append(", dateOfBirth=");
+		builder.append(dateOfBirth);
+		builder.append(", password=");
+		builder.append(password);
 		builder.append("]");
 		return builder.toString();
 	}

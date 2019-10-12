@@ -5,6 +5,8 @@
  */
 package com.hackthon.solatech.entity;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,7 +25,8 @@ public class User {
 	private String userName;
 	private String password;
 	private String userEmail;
-	private Long mobileNo;
+	private String mobileNo;
+	private LocalDateTime dateOfBirth;
 	
 	public User() {
 		
@@ -61,12 +64,26 @@ public class User {
 		this.userEmail = userEmail;
 	}
 
-	public Long getMobileNo() {
+	public String getMobileNo() {
 		return mobileNo;
 	}
 
-	public void setMobileNo(Long mobileNo) {
+	public void setMobileNo(String mobileNo) {
 		this.mobileNo = mobileNo;
+	}
+
+	/**
+	 * @return the dateOfBirth
+	 */
+	public LocalDateTime getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	/**
+	 * @param dateOfBirth the dateOfBirth to set
+	 */
+	public void setDateOfBirth(LocalDateTime dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
 	}
 
 	/**
@@ -75,12 +92,13 @@ public class User {
 	 * @param userEmail
 	 * @param mobileNo
 	 */
-	public User(String userName, String password, String userEmail, Long mobileNo) {
+	public User(String userName, String password, String userEmail, String mobileNo,LocalDateTime dateOfBirth) {
 		super();
 		this.userName = userName;
 		this.password = password;
 		this.userEmail = userEmail;
 		this.mobileNo = mobileNo;
+		this.dateOfBirth=dateOfBirth;
 	}
 
 	

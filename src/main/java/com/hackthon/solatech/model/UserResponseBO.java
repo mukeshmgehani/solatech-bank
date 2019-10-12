@@ -3,6 +3,8 @@
  */
 package com.hackthon.solatech.model;
 
+import java.util.List;
+
 /**
  * @author User1
  *
@@ -13,44 +15,27 @@ public class UserResponseBO extends SolaTechResponseBO {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
-	private int id;
-	private String name;
+	List<UserBo> userBos;
 
 	/**
-	 * @return the id
+	 * @return the userBos
 	 */
-	public int getId() {
-		return id;
+	public List<UserBo> getUserBos() {
+		return userBos;
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param userBos the userBos to set
 	 */
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
-		this.name = name;
+	public void setUserBos(List<UserBo> userBos) {
+		this.userBos = userBos;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int result = 1;
-		result = prime * result + id;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		int result = super.hashCode();
+		result = prime * result + ((userBos == null) ? 0 : userBos.hashCode());
 		return result;
 	}
 
@@ -58,17 +43,15 @@ public class UserResponseBO extends SolaTechResponseBO {
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
+		if (!super.equals(obj))
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
 		UserResponseBO other = (UserResponseBO) obj;
-		if (id != other.id)
-			return false;
-		if (name == null) {
-			if (other.name != null)
+		if (userBos == null) {
+			if (other.userBos != null)
 				return false;
-		} else if (!name.equals(other.name))
+		} else if (!userBos.equals(other.userBos))
 			return false;
 		return true;
 	}
@@ -76,10 +59,8 @@ public class UserResponseBO extends SolaTechResponseBO {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("UserResponseBO [id=");
-		builder.append(id);
-		builder.append(", name=");
-		builder.append(name);
+		builder.append("UserResponseBO [userBos=");
+		builder.append(userBos);
 		builder.append("]");
 		return builder.toString();
 	}
